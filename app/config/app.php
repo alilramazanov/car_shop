@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        // My service provider
+        L5Swagger\L5SwaggerServiceProvider::class,
+
     ],
 
     /*

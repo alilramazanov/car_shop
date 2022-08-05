@@ -28,12 +28,9 @@ services:
       - ./app:/var/www/app
     depends_on:
       - postgresql
-      - redis
     environment:
       DB_PORT: 5432
       DB_HOST: postgresql
-      REDIS_PORT: 6379
-      REDIS_HOST: redis
   php-cli:
     build:
       context: ./docker
@@ -42,10 +39,7 @@ services:
       - ./app:/var/www/app
     depends_on:
       - postgresql
-      - redis
     environment:
       DB_PORT: 5432
       DB_HOST: postgresql
-      REDIS_PORT: 6379
-      REDIS_HOST: redis
     tty: true
