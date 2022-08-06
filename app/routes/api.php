@@ -29,6 +29,9 @@ Route::group(
                     ['prefix' => 'cars'],
                     function (){
                         Route::get('list', 'Shop\CarController@list');
+                        Route::get('detail', 'Shop\CarController@detail');
+                        Route::get('brands/list', 'Shop\CarController@listBrand');
+                        Route::get('models/list', 'Shop\CarController@listModel');
 
                     }
                 );

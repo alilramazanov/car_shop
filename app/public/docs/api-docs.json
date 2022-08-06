@@ -36,6 +36,72 @@
                     }
                 }
             }
+        },
+        "/cars/detail": {
+            "get": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Get detail info of car",
+                "description": "return detail info car",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id of car",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": "2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/cars/brands/list": {
+            "get": {
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "Get list brands",
+                "description": "return list brands",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/cars/models/list": {
+            "get": {
+                "tags": [
+                    "Models"
+                ],
+                "summary": "Get filtred list models",
+                "description": "return list brands",
+                "parameters": [
+                    {
+                        "name": "brand_id",
+                        "in": "query",
+                        "description": "id of brand",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": "2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
         }
     }
 }
