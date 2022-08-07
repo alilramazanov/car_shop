@@ -3,11 +3,15 @@
 namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
+use App\Http\DtoObjects\Shop\FactoryDtoObject;
+use App\Http\Repositories\Shop\CarRepository;
 use App\Http\Requests\Shop\Car\DetailCarRequest;
+use App\Http\Requests\Shop\Car\ListCarRequest;
 use App\Http\Requests\Shop\Car\ListModelRequest;
 use App\Http\Resources\ListCategoryResource;
 use App\Http\Resources\Shop\Car\DetailCarResource;
 use App\Http\Resources\Shop\Car\ListCarResource;
+use App\Http\Strategies\DtoStrategies\MakeDto\MakeDtoFromRequest;
 use App\Models\Brand;
 use App\Models\Car;
 use App\Models\CarModel;
@@ -97,20 +101,32 @@ use Illuminate\Http\Request;
  */
 class CarController extends Controller
 {
+    protected $carRepository;
+    protected $factoryDtoObject;
+    protected $makeDto;
 
-    public function list(){
-        $cars = Car::query()
-            ->get();
+    /**
+     * @param  CarRepository  $repository
+     * @param  FactoryDtoObject  $factoryDtoObject
+     * @param  MakeDtoFromRequest  $makeDtoFromRequest
+     */
+    public function __construct(CarRepository $repository, FactoryDtoObject $factoryDtoObject, MakeDtoFromRequest $makeDtoFromRequest){
+        $this->carRepository = $repository;
+        $this->makeDto = $makeDtoFromRequest;
+        $this->factoryDtoObject = $factoryDtoObject;
+        $this->factoryDtoObject->setMakeDtoStrategy($makeDtoFromRequest);
+    }
 
+    public function list(ListCarRequest $request){
+        $filterCarDto = $this->factoryDtoObject->create('FilterCarDtoObject', $request);
+        $cars = $this->carRepository->getFilteredCarList($filterCarDto);
         return ListCarResource::collection($cars);
     }
 
     public function detail(DetailCarRequest $request){
-        $car = Car::query()
-            ->find($request->get('id'));
-
+        $carDto = $this->factoryDtoObject->create('CarDto', $request);
+        $car = $this->carRepository->getCarById($carDto);
         return new DetailCarResource($car);
-
     }
 
     public function listBrand(){

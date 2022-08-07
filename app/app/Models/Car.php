@@ -12,7 +12,6 @@ class Car extends Model
     protected $fillable = [
         'description',
         'preview',
-        'detail_image',
         'price',
         'purchased_in',
         'creator_id',

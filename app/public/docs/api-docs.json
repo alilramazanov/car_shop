@@ -103,5 +103,54 @@
                 }
             }
         }
+    },
+    "components": {
+        "schemas": {
+            "CarDtoObject": {
+                "title": "CarDtoObject",
+                "description": "car-dto object",
+                "required": [
+                    ""
+                ],
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "id of car",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "description": {
+                        "title": "description",
+                        "description": "description of car",
+                        "type": "string",
+                        "example": "The best car in the world"
+                    },
+                    "preview": {
+                        "title": "preview",
+                        "description": "preview of car",
+                        "type": "file"
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "price of car",
+                        "type": "integer",
+                        "example": 4000000
+                    },
+                    "creator_id": {
+                        "title": "creator_id",
+                        "description": "creator's id of car",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "car_model_id": {
+                        "title": "car_model_id",
+                        "description": "model's id of car",
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            }
+        }
     }
 }
