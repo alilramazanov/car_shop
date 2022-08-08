@@ -30,6 +30,10 @@ Route::group(
                     function (){
                         Route::get('list', 'Shop\CarController@list');
                         Route::get('detail', 'Shop\CarController@detail');
+
+                        Route::post('create','Shop\CarController@create');
+                        Route::post('delete', 'Shop\CarController@delete');
+
                         Route::get('brands/list', 'Shop\CarController@listBrand');
                         Route::get('models/list', 'Shop\CarController@listModel');
 

@@ -84,6 +84,34 @@ class CarDtoObject extends DtoCore
      */
     protected $car_model_id;
 
+
+    /**
+     * @OA\Property(
+     *     title="city_id",
+     *     type="integer",
+     *     description="city's id of car",
+     *     example=1
+     * )
+     * @var $city_id integer
+     */
+    protected $city_id;
+
+    /**
+     * @return int
+     */
+    public function getCity_Id(): int
+    {
+        return $this->city_id;
+    }
+
+    /**
+     * @param  int  $city_id
+     */
+    public function setCity_Id(int $city_id): void
+    {
+        $this->city_id = $city_id;
+    }
+
     /**
      * @return mixed
      */
@@ -151,7 +179,7 @@ class CarDtoObject extends DtoCore
     /**
      * @return mixed
      */
-    public function getCreatorId()
+    public function getCreator_Id()
     {
         return $this->creator_id;
     }
@@ -167,7 +195,7 @@ class CarDtoObject extends DtoCore
     /**
      * @return mixed
      */
-    public function getCarModel_Id()
+    public function getCar_Model_Id()
     {
         return $this->car_model_id;
     }
@@ -175,7 +203,7 @@ class CarDtoObject extends DtoCore
     /**
      * @param  mixed  $car_model_id
      */
-    public function setCarModel_Id($car_model_id): void
+    public function setCar_Model_Id($car_model_id): void
     {
         $this->car_model_id = $car_model_id;
     }

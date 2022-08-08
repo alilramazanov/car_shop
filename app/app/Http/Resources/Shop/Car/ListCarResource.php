@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources\Shop\Car;
 
-use App\Http\Resources\ListCategoryResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ListCarResource extends JsonResource
@@ -15,17 +14,14 @@ class ListCarResource extends JsonResource
      */
     public function toArray($request)
     {
-        $carName = $this->carModel->brand->name . ' ' . $this->carModel->name;
+        $carName = $this->brand . ' ' . $this->model_name;
+
         return [
             'id' => $this->id,
-//            'description' => $this->description,
             'preview' => $this->preview,
-//            'detailImages' => $this->detail_images,
-//            'purchasedIn' => $this->purchased_in,
             'price' => $this->price,
             'city' => $this->city->name,
-            'model' => $carName
-
+            'name' => $carName,
         ];
     }
 }

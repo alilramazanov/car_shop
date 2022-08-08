@@ -13,6 +13,10 @@ abstract class QueryFilter
         $this->builder = $this->makeQueryModel();
     }
 
+    /**
+     * @param $request
+     * @return Builder
+     */
     public function apply($request): Builder {
         foreach ($this->getParameters($request) as $parameter => $value){
             $this->$parameter($value);

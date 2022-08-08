@@ -21,7 +21,6 @@ class CarFactory extends Factory
     {
         $description = $this->faker->sentence(rand(10,30));
         $price = rand(6000000, 10000000);
-        $purchasedIn = $this->faker->date('Y-m-d', now());
         $creatorId = User::query()->get()->random()->id;
         $carModelId = CarModel::query()->get()->random()->id;
         $cityId = City::query()->get()->random()->id;
@@ -29,7 +28,6 @@ class CarFactory extends Factory
         return [
             'description' => $description,
             'price' => $price,
-            'purchased_in' => $purchasedIn,
             'creator_id' => $creatorId,
             'car_model_id' => $carModelId,
             'city_id' => $cityId

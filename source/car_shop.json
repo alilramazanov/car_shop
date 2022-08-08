@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "784c5595-28cd-420b-88b3-7b523dddf57a",
+		"name": "Test Projects",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18114513"
+	},
+	"item": [
+		{
+			"name": "CARSHOP",
+			"item": [
+				{
+					"name": "list car",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/shop/v1/cars/list?car_model_id=3&price=[10000,8083104]&type_drive=full_drive&type_engine=petrol_engine",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"shop",
+								"v1",
+								"cars",
+								"list"
+							],
+							"query": [
+								{
+									"key": "city_id",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "car_model_id",
+									"value": "3"
+								},
+								{
+									"key": "price",
+									"value": "[10000,8083104]",
+									"description": "json"
+								},
+								{
+									"key": "type_drive",
+									"value": "full_drive"
+								},
+								{
+									"key": "type_engine",
+									"value": "petrol_engine"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail car",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/shop/v1/cars/detail?id=19",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"shop",
+								"v1",
+								"cars",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "19"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "brand list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/shop/v1/cars/brands/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"shop",
+								"v1",
+								"cars",
+								"brands",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "model list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/shop/v1/cars/models/list?brand_id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"shop",
+								"v1",
+								"cars",
+								"models",
+								"list"
+							],
+							"query": [
+								{
+									"key": "brand_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "preview",
+									"type": "file",
+									"src": "/home/alil/Документы/images.jpeg"
+								},
+								{
+									"key": "price",
+									"value": "1233434",
+									"type": "text"
+								},
+								{
+									"key": "creator_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "car_model_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "city_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/shop/v1/cars/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"shop",
+								"v1",
+								"cars",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/shop/v1/cars/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"shop",
+								"v1",
+								"cars",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

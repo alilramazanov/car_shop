@@ -13,11 +13,14 @@ class Car extends Model
         'description',
         'preview',
         'price',
-        'purchased_in',
         'creator_id',
         'car_model_id',
         'city_id'
     ];
+
+    public function getPreviewAttribute($value){
+        return env('APP_URL') . '/storage/' . $value;
+    }
 
     public function city(){
         return $this->belongsTo(City::class);

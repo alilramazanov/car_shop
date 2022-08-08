@@ -21,12 +21,48 @@
                 "description": "return list of cars",
                 "parameters": [
                     {
-                        "name": "name",
+                        "name": "city_id",
                         "in": "query",
-                        "description": "name of car. Сase insensitive",
+                        "description": "city's id of car",
+                        "schema": {
+                            "type": "integer",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "car_model_id",
+                        "in": "query",
+                        "description": "model's id of car",
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    },
+                    {
+                        "name": "price",
+                        "in": "query",
+                        "description": "price of car. Between min and max price",
+                        "schema": {
+                            "type": "json",
+                            "example": "[1000000,100000000]"
+                        }
+                    },
+                    {
+                        "name": "type_drive",
+                        "in": "query",
+                        "description": "type drive of car",
                         "schema": {
                             "type": "string",
-                            "example": "A"
+                            "example": "full_drive"
+                        }
+                    },
+                    {
+                        "name": "type_engine",
+                        "in": "query",
+                        "description": "type engine of car",
+                        "schema": {
+                            "type": "string",
+                            "example": "petrol_engine"
                         }
                     }
                 ],
@@ -102,6 +138,52 @@
                     }
                 }
             }
+        },
+        "/cars/create": {
+            "post": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "create new car",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CarDtoObject"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "created"
+                    }
+                }
+            }
+        },
+        "/cars/delete": {
+            "post": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "delete car",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DetailCarRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "deleted"
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -145,6 +227,68 @@
                     "car_model_id": {
                         "title": "car_model_id",
                         "description": "model's id of car",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "city_id": {
+                        "title": "city_id",
+                        "description": "city's id of car",
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            },
+            "FilterCarDtoObject": {
+                "title": "FilterCarDtoObject",
+                "description": "filter-car-dto object",
+                "required": [
+                    ""
+                ],
+                "properties": {
+                    "city_id": {
+                        "title": "city_id",
+                        "description": "city id",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "type_drive": {
+                        "title": "type_drive",
+                        "description": "type drive of car",
+                        "type": "string",
+                        "example": "full_drive"
+                    },
+                    "type_engine": {
+                        "title": "type_engine",
+                        "description": "type engine of car",
+                        "type": "string",
+                        "example": "petrol_engine"
+                    },
+                    "car_model_id": {
+                        "title": "car_model_id",
+                        "description": "model's id of car",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "price of car. Between min and max price",
+                        "type": "json",
+                        "example": "[1000000,100000000]"
+                    }
+                },
+                "type": "object"
+            },
+            "DetailCarRequest": {
+                "title": "DetailCarRequest",
+                "description": "car-dto object",
+                "required": [
+                    ""
+                ],
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "id of car",
                         "type": "integer",
                         "example": 1
                     }

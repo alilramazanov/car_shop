@@ -18,7 +18,6 @@ class CreateCarsTable extends Migration
             $table->text('description')->nullable();
             $table->string('preview')->nullable();
             $table->integer('price');
-            $table->date('purchased_in');
             $table->foreignId('creator_id')->constrained('users');
             $table->foreignId('car_model_id')->constrained('car_models');
             $table->foreignId('city_id')->constrained('cities');

@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Shop\Car;
 
 use App\Http\Requests\ApiRequest;
-use Illuminate\Foundation\Http\FormRequest;
 
 class ListCarRequest extends ApiRequest
 {
